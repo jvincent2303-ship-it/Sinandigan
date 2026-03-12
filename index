@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>La Toquade - Menu</title>
+
+<style>
+body{
+font-family: Arial;
+background:#1b1b1b;
+color:white;
+margin:40px;
+}
+
+h1{
+text-align:center;
+}
+
+.menu-section{
+margin-top:40px;
+}
+
+.item{
+cursor:pointer;
+padding:10px;
+border-bottom:1px solid #444;
+display:flex;
+justify-content:space-between;
+}
+
+.item:hover{
+background:#2a2a2a;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+justify-content:center;
+align-items:center;
+}
+
+.popup-content{
+background:white;
+color:black;
+padding:30px;
+width:400px;
+border-radius:8px;
+}
+
+.close{
+float:right;
+cursor:pointer;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Restaurant La Toquade</h1>
+
+<div class="menu-section">
+<h2>Entrées</h2>
+
+<div class="item" onclick="openPopup('soupe')">
+<span>Soupe du jour</span>
+<span>7</span>
+</div>
+
+<div class="item" onclick="openPopup('crevettes')">
+<span>Crevettes gratinées à l'ail et pastis</span>
+<span>14</span>
+</div>
+
+<div class="item" onclick="openPopup('bruschetta')">
+<span>Bruschetta tomate et chèvre chaud</span>
+<span>11</span>
+</div>
+
+</div>
+
+<div class="menu-section">
+<h2>Burgers</h2>
+
+<div class="item" onclick="openPopup('classique')">
+<span>Le Classique Toquade</span>
+<span>21</span>
+</div>
+
+<div class="item" onclick="openPopup('forestiere')">
+<span>Le Forestière</span>
+<span>21</span>
+</div>
+
+</div>
+
+<div class="menu-section">
+<h2>Poutines</h2>
+
+<div class="item" onclick="openPopup('poutine')">
+<span>La Classique</span>
+<span>15</span>
+</div>
+
+</div>
+
+
+<div id="popup" class="popup">
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">X</span>
+
+<h2 id="popup-title"></h2>
+
+<p><b>Description</b></p>
+<p id="popup-desc">Information à ajouter</p>
+
+<p><b>Allergènes</b></p>
+<p>À ajouter</p>
+
+<p><b>Options</b></p>
+<p>À ajouter</p>
+
+</div>
+</div>
+
+
+<script>
+
+function openPopup(dish){
+
+let title="";
+let desc="";
+
+if(dish=="soupe"){
+title="Soupe du jour";
+desc="Description à compléter";
+}
+
+if(dish=="crevettes"){
+title="Crevettes gratinées à l'ail et pastis";
+desc="Description à compléter";
+}
+
+if(dish=="bruschetta"){
+title="Bruschetta tomate et chèvre chaud";
+desc="Description à compléter";
+}
+
+if(dish=="classique"){
+title="Le Classique Toquade";
+desc="Burger avec bacon, trois fromages, tomates, oignons rouges, cornichons et laitue";
+}
+
+if(dish=="forestiere"){
+title="Le Forestière";
+desc="Burger avec champignons et oignons sautés et trois fromages";
+}
+
+if(dish=="poutine"){
+title="Poutine Classique";
+desc="Fromage en grain et sauce poutine traditionnelle";
+}
+
+document.getElementById("popup-title").innerText=title;
+document.getElementById("popup-desc").innerText=desc;
+
+document.getElementById("popup").style.display="flex";
+
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
